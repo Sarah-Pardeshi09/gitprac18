@@ -8,9 +8,15 @@ function App() {
   const[result, setResult]= useState(0);
 
  const add = (e) => {
-  e.preventDefault(); // Prevent form submission
+  e.preventDefault(); 
   const sum = Number(num1) + Number(num2);
   setResult(sum);
+}
+
+ const sub = (e) => {
+  e.preventDefault(); 
+  const minus = Number(num1) - Number(num2);
+  setResult(minus);
 }
 
   return (
@@ -21,8 +27,13 @@ function App() {
 
       <button onClick={add}>Add</button>
       <h1>Addition is {result}</h1>
-    </form>
 
+      <input type="number"  value={num1} onChange={(e)=>setNum1(e.target.value)}></input>
+      <input type="number"  value={num2} onChange={(e)=>setNum2(e.target.value)}></input>
+
+      <button onClick={sub}>Subtract</button>
+      <h1>Subtraction is {result}</h1>
+    </form>
     </>
   );
 }
